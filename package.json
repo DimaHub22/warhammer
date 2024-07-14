@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-gp": "ng build --output-path docs --base-href /Warhammer/",
+    "build-gp": "ng build --output-path docs --base-href /warhammer/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "start-bd": "json-server --watch bd.json"
