@@ -1,0 +1,45 @@
+<div class="container">
+
+
+  <div class="items">
+<!--    <div class="item-title">Characters</div>-->
+    <div class="free-unit" *ngIf="units.length <= 0">"Units" отсутсвтуют</div>
+    <div class="unit-action">
+      <button class="unit-btn" (click)="back()">Back</button>
+    </div>
+
+    <div class="block-items" *ngIf="units.length > 0">
+
+      <div class="block-item" *ngFor="let w of units" (click)="leaderUnit(w)">
+        <div class="block-item-main">
+          <div class="block-item-head">
+            <div [class]="{image:true, 'image-enchantman' :w.power}"
+                 style="background-image: url('./assets/images/{{w.image}}')">
+              <!--                        <img src="../assets/images/{{w.image}}" alt=""/>-->
+            </div>
+
+            <div class="block-description">
+
+              <div>{{w.name}}</div>
+              <div [ngStyle]="{'color': '#f58a00'}">{{w.power}}</div>
+              <div [ngStyle]="{'color': '#0e6fa4'}">{{w.pts}}</div>
+            </div>
+          </div>
+          <div class="dotes">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g id="Layer_2" data-name="Layer 2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <circle cx="12" cy="4.5" r="3"></circle>
+                <circle cx="12" cy="19.5" r="3"></circle>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

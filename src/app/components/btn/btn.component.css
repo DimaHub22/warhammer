@@ -1,0 +1,27 @@
+ button {
+  font-size: 24px;
+  color: white;
+  padding: 5px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  background: gray;
+  margin-top: 3px;
+  border-radius: 5px;
+}
+
+ @media screen and (max-width: 600px){
+  button{
+     font-size: 16px;
+     padding: 3px 0;
+   }
+
+ }
+ @media screen and (max-width: 376px){
+   button{
+     font-size: 12px;
+     padding: 2px 0;
+   }
+
+ }

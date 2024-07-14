@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+/*html, body { height: 100%; }*/
+/*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #3f3f3f;
+  min-height: 100vh;
+  height: 100%;
+  padding: 7px;
+  font-weight: bold;
+  font-family: 'Cambria', sans-serif, '/assets/fonts/CAMBRIA.TTC';
+}
+
+
+.mat-menu-panel .mat-menu-content:not(:empty){
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
