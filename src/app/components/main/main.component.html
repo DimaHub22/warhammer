@@ -13,7 +13,6 @@
             <div class="block-item-head">
               <div [class]="{image:true, 'image-enchantman' :w.power}"
                    style="background-image: url('./assets/images/{{w.image}}')">
-                <!--                        <img src="../assets/images/{{w.image}}" alt=""/>-->
               </div>
 
               <div class="block-description">
@@ -27,10 +26,6 @@
                     <div class="other"
                          [matMenuTriggerFor]="others"
                          style="background-image: url('./assets/images/{{other.image}}')">
-
-                      <!--                    <div class="other-description">-->
-                      <!--                      {{other.name}}-->
-                      <!--                    </div>-->
                     </div>
                     <mat-menu #others="matMenu">
                       <div class="othet-mat" mat-menu-item>
@@ -63,9 +58,6 @@
           </div>
 
           <mat-menu #menu="matMenu">
-            <!--          <button mat-menu-item>-->
-            <!--            <span>Units</span>-->
-            <!--          </button>-->
             <button mat-menu-item (click)="duplicate(w, waha)">
               <span>Duplicate</span>
             </button>
