@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
   waha: WahaType[] = [];
   unitOther: WahaOtherType[] = []
 
+  loader: boolean = false
   modal: boolean = false
 
   constructor(private service: UnitService,
@@ -27,10 +28,12 @@ export class MainComponent implements OnInit {
   }
 
   getUnitAll() {
+    this.loader = true
     this.service.getMainUnit()
       .subscribe(data => {
-        this.waha = data.sort((a, b) => a.name > b.name ? 1 : -1)
 
+        this.waha = data.sort((a, b) => a.name > b.name ? 1 : -1)
+        this.loader = false
         this.service.getOtherUnit()
           .subscribe(data => {
 
@@ -152,7 +155,7 @@ export class MainComponent implements OnInit {
     }
   }
 
-  deleteOtherUnit(id:string){
+  deleteOtherUnit(id: string) {
     this.service.deleteOtherUnit(id)
       .subscribe(data => {
 
