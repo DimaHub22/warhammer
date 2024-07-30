@@ -4,12 +4,113 @@
     <div class="loader" *ngIf="loader"></div>
 
     <div class="item" *ngIf="!loader">
-      <div class="item-title">Characters</div>
+
+      <div class="item-title">
+        <div class="title">Characters</div>
+        <div class="item-image">
+          <img src="./assets/images/page/Add_unit.png" alt="">
+        </div>
+      </div>
 
       <div class="block-items" *ngFor="let w of waha">
 
         <div class="block-item">
-          <div class="block-item-main">
+          <div [class]="{'block-item-main' :true, 'block-item-main-enchantman': w.power}">
+            <div class="block-item-head">
+              <div [class]="{image:true, 'image-enchantman' : w.power}"
+                   style="background-image: url('./assets/images/{{w.image}}')">
+                <!--                        <img src="../assets/images/{{w.image}}" alt=""/>-->
+              </div>
+
+              <div class="block-description">
+
+                <div>{{w.name}}</div>
+                <div [ngStyle]="{'color': '#f58a00'}">{{w.power}}</div>
+                <div [ngStyle]="{'color': '#0e6fa4'}">{{w.pts}}</div>
+
+                <div class="other-items">
+                  <div class="other-item" *ngFor="let other of w.otherUnits">
+                    <div class="other"
+                         [matMenuTriggerFor]="others"
+                         style="background-image: url('./assets/images/{{other.image}}')">
+
+                      <!--                    <div class="other-description">-->
+                      <!--                      {{other.name}}-->
+                      <!--                    </div>-->
+                    </div>
+                    <mat-menu #others="matMenu">
+                      <div class="othet-mat" mat-menu-item>
+                        <span>{{other.name}}</span>
+                      </div>
+                      <button mat-menu-item (click)="deleteOtherUnit(other.id)">
+                        <span>Delete</span>
+                      </button>
+                    </mat-menu>
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+            <div class="dotes" [matMenuTriggerFor]="menu" (click)="openDialog()">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <g id="Layer_2" data-name="Layer 2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <circle cx="12" cy="4.5" r="3"></circle>
+                  <circle cx="12" cy="19.5" r="3"></circle>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <div class="btn-add">
+            <!--            <app-btn [toggle]="w"></app-btn>-->
+          </div>
+
+          <mat-menu #menu="matMenu">
+            <!--          <button mat-menu-item>-->
+            <!--            <span>Units</span>-->
+            <!--          </button>-->
+            <button mat-menu-item (click)="duplicate(w, waha)">
+              <span>Duplicate</span>
+            </button>
+            <button mat-menu-item (click)="deleteUnit(w.id)">
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </div>
+
+        <!--      <div class="user" *ngIf="w.user">-->
+        <!--        <div class="user-image" (click)="closeUser(w.id)" style="background-image: url('./assets/images/{{w.image}}')">-->
+        <!--          &lt;!&ndash;          <img src="../assets/images/{{w.image}}" alt=""/>&ndash;&gt;-->
+        <!--        </div>-->
+
+        <!--        <div class="user-description">-->
+        <!--          <div class="user-description-title"><strong>{{w.name}}</strong>-->
+        <!--            {{w.pts}}-->
+        <!--          </div>-->
+        <!--          <div [ngStyle]="{'color': 'orange'}">{{w.power}}</div>-->
+        <!--          <div>{{w.description}}</div>-->
+
+        <!--          <button *ngIf="w.power">Click</button>-->
+        <!--        </div>-->
+
+        <!--      </div>-->
+
+      </div>
+
+      <div class="item-title">
+        <div class="title">Characters</div>
+        <div class="item-image">
+          <img src="./assets/images/page/Add_unit.png" alt="">
+        </div>
+      </div>
+
+      <div class="block-items" *ngFor="let w of waha">
+
+        <div class="block-item">
+          <div [class]="{'block-item-main' :true, 'block-item-main-enchantman': w.power}">
             <div class="block-item-head">
               <div [class]="{image:true, 'image-enchantman' :w.power}"
                    style="background-image: url('./assets/images/{{w.image}}')">
@@ -54,7 +155,7 @@
           </div>
 
           <div class="btn-add">
-<!--            <app-btn [toggle]="w"></app-btn>-->
+            <!--            <app-btn [toggle]="w"></app-btn>-->
           </div>
 
           <mat-menu #menu="matMenu">
